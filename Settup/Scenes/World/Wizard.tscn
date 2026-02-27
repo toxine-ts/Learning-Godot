@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://be2vsqk1gm5te"]
+
+[ext_resource type="Script" uid="uid://bumw2wlokxhky" path="res://Scenes/World/Wizard.gd" id="1_8txff"]
+[ext_resource type="Texture2D" uid="uid://bf02pfjjyyaw3" path="res://Assets/Wizard.png" id="1_nnpp4"]
+
+[node name="Wizard" type="Node2D" unique_id=464636465]
+script = ExtResource("1_8txff")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1197926807]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_nnpp4")

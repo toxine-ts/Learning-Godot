@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://dme6rb7r3k85k"]
+
+[ext_resource type="Texture2D" uid="uid://b7u6q03usu5b" path="res://Assests/01_PLANE_FLY/Water.png" id="1_npita"]
+[ext_resource type="Script" uid="uid://o1mpnu2dt751" path="res://Scenes/Ocean/Ocean.gd" id="1_y20wh"]
+[ext_resource type="Texture2D" uid="uid://c53g56c0jn52j" path="res://Assests/01_PLANE_FLY/Plane.png" id="2_2ucyk"]
+[ext_resource type="Texture2D" uid="uid://y6qh7u7617t3" path="res://Assests/01_PLANE_FLY/Helicopter.png" id="3_y20wh"]
+
+[node name="Ocean" type="Node2D" unique_id=1692657632]
+script = ExtResource("1_y20wh")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=538130712]
+position = Vector2(1, -1)
+texture = ExtResource("1_npita")
+centered = false
+
+[node name="Plane" type="Sprite2D" parent="." unique_id=1676810526]
+position = Vector2(103, 154)
+rotation = -0.02617994
+texture = ExtResource("2_2ucyk")
+
+[node name="Heli" type="Sprite2D" parent="." unique_id=1648761258]
+position = Vector2(541, 64)
+rotation = 1.5707964
+texture = ExtResource("3_y20wh")
