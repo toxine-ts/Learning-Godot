@@ -1,21 +1,23 @@
 class_name Hobbit
 extends Node2D
 
+@export var timer_count: float = 2.0
+@onready var reveal_timer: Timer = $RevealTimer
 
-func _init() -> void:
-	print("%s _init %s" % [get_instance_id(), name])
+signal kill_wizard
 
-func _enter_tree() -> void:
-	print("%s _enter_tree %s" % [get_instance_id(), name])
-
-func _exit_tree() -> void:
-	print("%s _exit_tree %s" % [get_instance_id(), name])
-
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("hit_wizard"):
+		kill_wizard.emit()
+	
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	print("%s _ready %s" % [get_instance_id(), name]) # Replace with function body.
-
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	rotate(PI * delta)
+
+func hit_by_spell() -> void:
+	scale = Vector2(0.2,0.2)
+	set_process(false) 
