@@ -1,0 +1,128 @@
+[gd_scene format=3 uid="uid://bk7wx4bliuk8n"]
+
+[ext_resource type="Texture2D" uid="uid://bjibyqj06e775" path="res://Assets/background/sky.png" id="1_o8wgc"]
+[ext_resource type="Script" uid="uid://covmbg6dslwqi" path="res://Scenes/Main/Main.gd" id="1_w20t6"]
+[ext_resource type="LabelSettings" uid="uid://44rkxp8joa2f" path="res://Resources/RedLabel96.tres" id="2_w20t6"]
+[ext_resource type="LabelSettings" uid="uid://80u6nqglscip" path="res://Resources/RedLabel24.tres" id="3_aw1lf"]
+[ext_resource type="FontFile" uid="uid://cneedlbnotp5q" path="res://Assets/fonts/LuckiestGuy-Regular.ttf" id="4_5s61s"]
+[ext_resource type="AudioStream" uid="uid://da3uu2gx5a53l" path="res://Assets/audio/bgm_menu.mp3" id="5_7npjy"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_4vhfm"]
+font = ExtResource("4_5s61s")
+font_size = 48
+font_color = Color(0.6641901, 0.94660264, 0.990334, 1)
+outline_size = 9
+outline_color = Color(0.025715116, 0.24460983, 0.27209395, 1)
+
+[sub_resource type="Animation" id="Animation_o8wgc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MarginContainer/PressSpace:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_w20t6"]
+resource_name = "flashLabel"
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MarginContainer/PressSpace:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.003921569), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_aw1lf"]
+_data = {
+&"RESET": SubResource("Animation_o8wgc"),
+&"flashLabel": SubResource("Animation_w20t6")
+}
+
+[node name="Main" type="Control" unique_id=150307909]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_w20t6")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=239555245]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_o8wgc")
+expand_mode = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=288619068]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 64
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="GameTitle" type="Label" parent="MarginContainer" unique_id=1669858394]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "Tappy 
+Plane"
+label_settings = ExtResource("2_w20t6")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HeighScore" type="Label" parent="MarginContainer" unique_id=1272399259]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+text = "Heigh Score"
+label_settings = ExtResource("3_aw1lf")
+vertical_alignment = 1
+
+[node name="Score" type="Label" parent="MarginContainer" unique_id=102255723]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+text = "000"
+label_settings = ExtResource("3_aw1lf")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="PressSpace" type="Label" parent="MarginContainer" unique_id=1393972596]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Press Space
+To Play"
+label_settings = SubResource("LabelSettings_4vhfm")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Music" type="AudioStreamPlayer" parent="." unique_id=84819228]
+stream = ExtResource("5_7npjy")
+autoplay = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2083132135]
+libraries/ = SubResource("AnimationLibrary_aw1lf")
+autoplay = &"flashLabel"

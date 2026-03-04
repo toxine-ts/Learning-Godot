@@ -1,0 +1,78 @@
+[gd_scene format=3 uid="uid://x662geaiwwgx"]
+
+[ext_resource type="Script" uid="uid://bsqsn5nqo4ejp" path="res://Resources/GameUi.gd" id="1_ao07y"]
+[ext_resource type="FontFile" uid="uid://cneedlbnotp5q" path="res://Assets/fonts/LuckiestGuy-Regular.ttf" id="1_r5jjs"]
+[ext_resource type="AudioStream" uid="uid://wjnyhwhbyrd" path="res://Assets/audio/game_over.wav" id="3_nh7sg"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ao07y"]
+font = ExtResource("1_r5jjs")
+font_size = 34
+font_color = Color(1, 0.26666668, 0.3137255, 1)
+outline_size = 9
+outline_color = Color(0.45301902, 0, 0.078453235, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_nh7sg"]
+font = ExtResource("1_r5jjs")
+font_size = 42
+font_color = Color(1, 0.26666668, 0.3137255, 1)
+outline_size = 9
+outline_color = Color(0.45301902, 0, 0.078453235, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_83pg2"]
+font = ExtResource("1_r5jjs")
+font_size = 44
+font_color = Color(0.40278342, 0.6477273, 0.42879423, 1)
+outline_size = 9
+outline_color = Color(0.17076951, 0.37045637, 0.14351654, 1)
+
+[node name="GameUi" type="Control" unique_id=1976790736]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ao07y")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1640925310]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="ScoreLabel" type="Label" parent="MarginContainer" unique_id=670848607]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "000"
+label_settings = SubResource("LabelSettings_ao07y")
+
+[node name="GameOverLabel" type="Label" parent="MarginContainer" unique_id=1375632197]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Game Over"
+label_settings = SubResource("LabelSettings_nh7sg")
+
+[node name="PressSpaceLabel" type="Label" parent="MarginContainer" unique_id=2078036207]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Press Space"
+label_settings = SubResource("LabelSettings_83pg2")
+
+[node name="GameOver" type="AudioStreamPlayer" parent="." unique_id=1685490267]
+stream = ExtResource("3_nh7sg")
+
+[node name="ShowReset" type="Timer" parent="." unique_id=1815550945]
+wait_time = 2.0
+one_shot = true
+
+[connection signal="timeout" from="ShowReset" to="." method="_on_show_reset_timeout"]

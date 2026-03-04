@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://ojsvie51nj4j"]
+
+[ext_resource type="Texture2D" uid="uid://cans3ib37iggd" path="res://Assets/background/rocks_2.png" id="1_rdw05"]
+[ext_resource type="PackedScene" uid="uid://bu6g247xbjbdx" path="res://Scenes/Tappy/Tappy.tscn" id="2_gwu2e"]
+
+[node name="Game" type="Node" unique_id=2121629416]
+
+[node name="Rocks2" type="Sprite2D" parent="." unique_id=1123018068]
+position = Vector2(443, 344)
+texture = ExtResource("1_rdw05")
+
+[node name="Tappy" parent="." unique_id=741724469 instance=ExtResource("2_gwu2e")]
+position = Vector2(109, 342)
