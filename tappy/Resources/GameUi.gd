@@ -31,4 +31,4 @@ func _on_show_reset_timeout() -> void:
 
 func on_point_scrored() -> void:
 	score += 1
-	score_label.text = str(score).pad_zeros(4)
+	score_label.text = str(score).pad_zeros(3)

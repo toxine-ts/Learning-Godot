@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://gsjg6ojgmne2"]
 
 [ext_resource type="Texture2D" uid="uid://dl3tqi4oeo7r2" path="res://Assets/pipes/laser2.png" id="1_nhk4o"]
+[ext_resource type="AudioStream" uid="uid://bp821cq4mc67q" path="res://Assets/audio/score.wav" id="2_g6hyc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nhk4o"]
 size = Vector2(3, 193)
@@ -57,4 +58,6 @@ shape = SubResource("RectangleShape2D_nhk4o")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2026148480]
 libraries/ = SubResource("AnimationLibrary_peav1")
-autoplay = &"flash"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1263558646]
+stream = ExtResource("2_g6hyc")

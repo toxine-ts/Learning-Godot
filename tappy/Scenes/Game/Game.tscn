@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://cans3ib37iggd" path="res://Assets/background/rocks_2.png" id="1_rdw05"]
 [ext_resource type="Script" uid="uid://dbqwyiyqccuoc" path="res://Scenes/Game/Game.gd" id="1_y3kpf"]
+[ext_resource type="PackedScene" uid="uid://03srwbfxlqf" path="res://Scenes/ScrollingBg/ScrollingBg.tscn" id="2_3k6gv"]
 [ext_resource type="PackedScene" uid="uid://bu6g247xbjbdx" path="res://Scenes/Tappy/Tappy.tscn" id="2_gwu2e"]
 [ext_resource type="PackedScene" uid="uid://bles33wu866yv" path="res://Scenes/Barrier/Barrier.tscn" id="3_xbxml"]
 [ext_resource type="PackedScene" uid="uid://x662geaiwwgx" path="res://Resources/GameUi.tscn" id="5_y3kpf"]
@@ -9,7 +10,11 @@
 [node name="Game" type="Node" unique_id=258223776]
 script = ExtResource("1_y3kpf")
 
+[node name="ScrollingBg" parent="." unique_id=1313531895 instance=ExtResource("2_3k6gv")]
+scale = Vector2(0.8, 0.8)
+
 [node name="Rocks2" type="Sprite2D" parent="." unique_id=1123018068]
+visible = false
 position = Vector2(443, 344)
 texture = ExtResource("1_rdw05")
 
@@ -21,13 +26,13 @@ position = Vector2(108, 378)
 [node name="PipeHolder" type="Node" parent="." unique_id=1800529906]
 
 [node name="UppderSpawn" type="Marker2D" parent="." unique_id=1700374714]
-position = Vector2(530, 300)
+position = Vector2(530, 250)
 
 [node name="LowwerSpawn" type="Marker2D" parent="." unique_id=1313666572]
-position = Vector2(530, 450.7)
+position = Vector2(530, 550)
 
 [node name="SpawnTimer" type="Timer" parent="." unique_id=1181782029]
-wait_time = 2.0
+wait_time = 1.5
 autostart = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=274698757]

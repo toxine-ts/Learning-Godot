@@ -16,6 +16,8 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
+
+
 func spawn_pipe() -> void:
 	var new_pipe: Pipes = PIPES.instantiate()
 	var pipes_y_position: = randf_range(
