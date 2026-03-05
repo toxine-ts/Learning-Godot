@@ -18,6 +18,3 @@ position = Vector2(983, 432)
 [node name="Hobbit" parent="." unique_id=487477667 instance=ExtResource("3_5jr8x")]
 position = Vector2(75, 438)
 timer_count = 3.0
-
-[connection signal="cast_spell" from="Wizard" to="." method="_on_wizard_cast_spell"]
-[connection signal="kill_wizard" from="Hobbit" to="." method="_on_hobbit_kill_wizard"]
