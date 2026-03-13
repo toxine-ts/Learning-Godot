@@ -1,6 +1,7 @@
+class_name Tappy
+
 extends CharacterBody2D
 
-class_name Tappy
 
 #@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 

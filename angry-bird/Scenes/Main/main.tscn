@@ -1,8 +1,12 @@
 [gd_scene format=3 uid="uid://b0ipkaseg3tys"]
 
 [ext_resource type="Texture2D" uid="uid://ch2q865mxl4h7" path="res://Assets/env/MainBG.png" id="1_1r6ip"]
+[ext_resource type="PackedScene" uid="uid://cj5yuyoq4aj2n" path="res://Scenes/LevelButton/LevelButton.tscn" id="2_qw60k"]
+[ext_resource type="AudioStream" uid="uid://dd1khuhk7qpbg" path="res://Assets/audio/birdsong.wav" id="3_5yls4"]
+[ext_resource type="LabelSettings" uid="uid://dummfdtlvl44j" path="res://Resources/blueLabel96.tres" id="4_5yls4"]
 
 [node name="Main" type="Control" unique_id=2119792081]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -19,3 +23,45 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_1r6ip")
 expand_mode = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1159527851]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -198.0
+offset_top = -50.0
+offset_right = 198.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 48
+
+[node name="LevelButton" parent="HBoxContainer" unique_id=1505983815 instance=ExtResource("2_qw60k")]
+layout_mode = 2
+
+[node name="LevelButton2" parent="HBoxContainer" unique_id=681218288 instance=ExtResource("2_qw60k")]
+layout_mode = 2
+level_number = 2
+
+[node name="LevelButton3" parent="HBoxContainer" unique_id=1584102711 instance=ExtResource("2_qw60k")]
+layout_mode = 2
+level_number = 3
+
+[node name="MainSound" type="AudioStreamPlayer" parent="." unique_id=2070600566]
+stream = ExtResource("3_5yls4")
+volume_db = -16.985
+autoplay = true
+
+[node name="Label" type="Label" parent="." unique_id=636642660]
+layout_mode = 0
+offset_left = 233.0
+offset_top = 74.0
+offset_right = 941.0
+offset_bottom = 171.0
+rotation = -0.057469856
+pivot_offset_ratio = Vector2(0.5, 0.5)
+text = "Angry Animals"
+label_settings = ExtResource("4_5yls4")

@@ -1,0 +1,87 @@
+[gd_scene format=3 uid="uid://qi4gtmskd0ak"]
+
+[ext_resource type="Texture2D" uid="uid://dcisouvm41djy" path="res://Assets/env/elementWood004.png" id="1_1tkc5"]
+[ext_resource type="Script" uid="uid://cgftl5n7egoh8" path="res://Scenes/Cup/Cup.gd" id="1_nfkcc"]
+[ext_resource type="Texture2D" uid="uid://bra1cyvcklc24" path="res://Assets/env/elementWood015.png" id="2_jdgvp"]
+[ext_resource type="AudioStream" uid="uid://2cs4fwv3udju" path="res://Assets/audio/vanish.wav" id="3_jdgvp"]
+
+[sub_resource type="Animation" id="Animation_nfkcc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_q4041"]
+resource_name = "Visuals"
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.39935932, 0.9978876),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.5, 0.5), Vector2(1, 1), Vector2(0, 0)]
+}
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sound")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("3_jdgvp")
+}],
+"times": PackedFloat32Array(0.1)
+}
+tracks/1/use_blend = true
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hc0i8"]
+_data = {
+&"RESET": SubResource("Animation_nfkcc"),
+&"Visuals": SubResource("Animation_q4041")
+}
+
+[node name="Cup" type="StaticBody2D" unique_id=928101229]
+script = ExtResource("1_nfkcc")
+
+[node name="Node2D" type="Node2D" parent="." unique_id=2097469264]
+scale = Vector2(0.5, 0.5)
+
+[node name="LeftTriangle" type="Sprite2D" parent="Node2D" unique_id=1277312187]
+position = Vector2(-72, -69)
+scale = Vector2(0.98957634, 0.93594724)
+texture = ExtResource("1_1tkc5")
+
+[node name="Rectangle" type="Sprite2D" parent="Node2D" unique_id=1779608787]
+texture = ExtResource("2_jdgvp")
+
+[node name="RightTriangle" type="Sprite2D" parent="Node2D" unique_id=942906646]
+position = Vector2(72, -71)
+texture = ExtResource("1_1tkc5")
+flip_h = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=2017132789]
+polygon = PackedVector2Array(-53, -51, -54, 17, 54, 17, 53, -53, 18, -18, -18, -18)
+
+[node name="Sound" type="AudioStreamPlayer2D" parent="." unique_id=890910498]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1444394533]
+libraries/ = SubResource("AnimationLibrary_hc0i8")
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

@@ -1,18 +1,25 @@
 [gd_scene format=3 uid="uid://dnlcwagv1imes"]
 
+[ext_resource type="Script" uid="uid://bykb42k1kt6m4" path="res://Scenes/Animal/Animal.gd" id="1_oryip"]
 [ext_resource type="Texture2D" uid="uid://dvrxayp87uigs" path="res://Assets/player/parrot.png" id="1_qtpp4"]
 [ext_resource type="AudioStream" uid="uid://bgciivudxptqp" path="res://Assets/audio/kick_wood.ogg" id="2_lib84"]
 [ext_resource type="AudioStream" uid="uid://dt3p80wjxaj28" path="res://Assets/audio/catapult.ogg" id="3_oryip"]
 [ext_resource type="AudioStream" uid="uid://cblo8rgwg5s6v" path="res://Assets/audio/stretch2.ogg" id="4_x85cc"]
+[ext_resource type="Texture2D" uid="uid://g3g6246yvo5t" path="res://Assets/items/arrow.png" id="6_x85cc"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_x85cc"]
+bounce = 0.3
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qtpp4"]
 radius = 20.024984
 
 [node name="Animal" type="RigidBody2D" unique_id=2120776314]
 input_pickable = true
+physics_material_override = SubResource("PhysicsMaterial_x85cc")
 freeze = true
 contact_monitor = true
 max_contacts_reported = 1
+script = ExtResource("1_oryip")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1999109650]
 scale = Vector2(0.15, 0.15)
@@ -29,9 +36,6 @@ offset_right = 72.0
 offset_bottom = 54.0
 theme_override_constants/outline_size = 5
 theme_override_font_sizes/font_size = 24
-text = "test
-test
-test"
 
 [node name="KickSound" type="AudioStreamPlayer" parent="." unique_id=1523622684]
 stream = ExtResource("2_lib84")
@@ -41,3 +45,13 @@ stream = ExtResource("3_oryip")
 
 [node name="StrechSound" type="AudioStreamPlayer" parent="." unique_id=522315608]
 stream = ExtResource("4_x85cc")
+
+[node name="Arrow" type="Sprite2D" parent="." unique_id=1383436108]
+visible = false
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("6_x85cc")
+offset = Vector2(150, 0)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="input_event" from="." to="." method="_on_input_event"]
+[connection signal="sleeping_state_changed" from="." to="." method="_on_sleeping_state_changed"]

@@ -15,7 +15,6 @@ func _ready() -> void:
 
 func load_heigh_score() -> void:
 	if ResourceLoader.exists(SCORE_FILE_PATH):
-		print("exist")
 		var hsr: HeighScoreResource = load(SCORE_FILE_PATH)
 		if hsr: heigh_score = hsr.heigh_score
 

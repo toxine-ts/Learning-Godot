@@ -12,12 +12,6 @@ func _ready() -> void:
 	spawn_pipe()
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
-
-
 func spawn_pipe() -> void:
 	var new_pipe: Pipes = PIPES.instantiate()
 	var pipes_y_position: = randf_range(

@@ -1,0 +1,97 @@
+[gd_scene format=3 uid="uid://cfqhuif6nf0is"]
+
+[ext_resource type="LabelSettings" uid="uid://dtr0co2alndcd" path="res://Resources/label32.tres" id="1_3t70w"]
+[ext_resource type="Script" uid="uid://cxmki7yprm4ay" path="res://Scenes/MainUi/GameUi.gd" id="1_ouyhb"]
+[ext_resource type="LabelSettings" uid="uid://dummfdtlvl44j" path="res://Resources/blueLabel96.tres" id="2_ouyhb"]
+[ext_resource type="FontFile" uid="uid://cbn25jmw40qyr" path="res://Assets/fonts/LuckiestGuy-Regular.ttf" id="3_iecvc"]
+[ext_resource type="AudioStream" uid="uid://comw6cnhlhcux" path="res://Assets/audio/jazzyfrenchy.mp3" id="5_iecvc"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_73f51"]
+font = ExtResource("3_iecvc")
+font_size = 64
+font_color = Color(0.9597438, 0.7229919, 0.43957114, 1)
+outline_size = 7
+outline_color = Color(0.03169222, 0.16882384, 0.22667909, 1)
+
+[node name="GameUi" type="Control" unique_id=524003793]
+process_mode = 3
+z_index = 2
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_ouyhb")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1257182324]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1570223492]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="HBLevel" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=2142369787]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBLevel" unique_id=341241970]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+text = "Level :"
+label_settings = ExtResource("1_3t70w")
+
+[node name="LevelLabel" type="Label" parent="MarginContainer/VBoxContainer/HBLevel" unique_id=1083551620]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "000"
+label_settings = ExtResource("1_3t70w")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=16655388]
+layout_mode = 2
+
+[node name="AttempsLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer2" unique_id=9104709]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+text = "Attempts :"
+label_settings = ExtResource("1_3t70w")
+
+[node name="AttemptCountLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer2" unique_id=1033604868]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "000"
+label_settings = ExtResource("1_3t70w")
+
+[node name="VBComplete" type="VBoxContainer" parent="MarginContainer" unique_id=811523676]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="LevelComplete" type="Label" parent="MarginContainer/VBComplete" unique_id=219227053]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Level Complete"
+label_settings = ExtResource("2_ouyhb")
+
+[node name="LevelComplete2" type="Label" parent="MarginContainer/VBComplete" unique_id=1180317464]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "press  space"
+label_settings = SubResource("LabelSettings_73f51")
+
+[node name="CompleteSound" type="AudioStreamPlayer" parent="." unique_id=419514254]
+stream = ExtResource("5_iecvc")
