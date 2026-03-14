@@ -6,6 +6,7 @@ const MEMORY_TILE = preload("uid://cql5xay1b52lu")
 @onready var scorer: Scorer = $Scorer
 @onready var moves_label: Label = $HB/VB/HB/MovesLabel
 @onready var pairs_label: Label = $HB/VB/HB2/PairsLabel
+@onready var game_over_ui: PanelContainer = $MarginContainer/GameOverUi
 
 func _ready() -> void:
 	SignalHub.on_level_selected.connect(on_level_selected)

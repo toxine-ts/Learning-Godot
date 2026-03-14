@@ -1,9 +1,11 @@
+AudioStreamPlayer
+Node
+MarginContainer
 PanelContainer
 Label
 VBoxContainer
 Panel
 Timer
-Node
 TextureRect
 Control
 TextureButton

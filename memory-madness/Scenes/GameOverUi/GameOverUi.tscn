@@ -1,14 +1,19 @@
 [gd_scene format=3 uid="uid://calhgngfctiie"]
 
 [ext_resource type="FontFile" uid="uid://c2gt4q4ev7wj1" path="res://Assets/fonts/LuckiestGuy-Regular.ttf" id="1_j2od3"]
+[ext_resource type="Script" uid="uid://dg7pvu3j8hng5" path="res://Scenes/GameOverUi/GameOverUi.gd" id="1_mdbud"]
 [ext_resource type="LabelSettings" uid="uid://chklvjjp73lev" path="res://Resources/label48.tres" id="2_8nicn"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mdbud"]
-content_margin_left = 12.0
-content_margin_top = 12.0
-content_margin_right = 12.0
-content_margin_bottom = 12.0
-bg_color = Color(0.21435985, 0.21435994, 0.21435979, 1)
+content_margin_left = 24.0
+content_margin_top = 24.0
+content_margin_right = 24.0
+content_margin_bottom = 24.0
+bg_color = Color(0.21568628, 0.21568628, 0.21568628, 0.5529412)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
 
 [sub_resource type="LabelSettings" id="LabelSettings_byt08"]
 font = ExtResource("1_j2od3")
@@ -21,6 +26,7 @@ outline_color = Color(0.24115619, 0.24115601, 0.24115601, 1)
 offset_right = 40.0
 offset_bottom = 50.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_mdbud")
+script = ExtResource("1_mdbud")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1696344510]
 layout_mode = 2

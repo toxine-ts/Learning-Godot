@@ -31,9 +31,14 @@ func _ready() -> void:
 	SignalHub.on_tile_selected.connect(on_tile_selected)
 	SignalHub.on_exit_level.connect(on_game_exit_press)
 
+func check_game_over() -> void:
+	if _target_pair != _pair_made:
+		is_selection_enable = true
+	else:
+		SignalHub.on_emit_game_over(_move_made)
+
 func check_for_pair() -> void: 
 	_move_made += 1
-	
 	if _selected_tile[0].match_other_tiles(_selected_tile[1]):
 		_selected_tile[0].kill_pair()
 		_selected_tile[1].kill_pair()
@@ -60,7 +65,7 @@ func on_tile_selected(tile: MemoryTile) -> void:
 func _on_reveal_timer_timeout() -> void:
 	for tile in _selected_tile:
 		tile.reveal(false)
-	is_selection_enable = true
+	check_game_over()
 	_selected_tile.clear()
 	
 func on_game_exit_press() -> void:
